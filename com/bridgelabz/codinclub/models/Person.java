@@ -1,5 +1,8 @@
 package com.bridgelabz.codinclub.models;
-
+/**
+*this is the person model class to define the required fields and setter getter methods
+*@author:Amrut
+*/
 public class Person {
 	 /*data of a person*/
     private final String firstName;
