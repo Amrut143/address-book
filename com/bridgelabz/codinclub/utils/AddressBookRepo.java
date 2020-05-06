@@ -13,11 +13,11 @@ import java.util.Scanner;
 */
 public class AddressBookRepo{
 	/*creating arraylist object to store the data*/
-    final private List<Person> addressBook = new ArrayList<>();
+    public final List<Person> addressBook = new ArrayList<>();
 
     public void addToAddressBook(final Person person){
         addressBook.add(person);
-        WriteCsvData.write(person);
+        WriteCsvData.write(addressBook);
         System.out.println("Contact added into file");
     }
 
