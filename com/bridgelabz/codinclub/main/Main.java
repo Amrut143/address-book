@@ -15,6 +15,7 @@ public class Main {
     	/*creating the implementation class object*/
         final AddressBookService addressBookService = new AddressBookServiceImpl(new AddressBookRepo());
         System.out.println("Welcome to my address book");
+			addressBookService.read();
         while(true){
             System.out.print("View the options and choose\n1. Add contact \n2. View contact \n3. Edit contact \n4. Sort contacts \n5. Delete contact\n6. Quit \nEnter your choice: ");
 
@@ -40,11 +41,12 @@ public class Main {
                     addressBookService.deletePerson();
                 break;
                 case 6:
+						  addressBookService.saveChange();
                     System.out.println("Quit...");
                     System.exit(0);
                 case 7:
                     System.out.println("Reading data from csv file");
-                    ReadCsvData.read();
+                 
                     break;
                 default:
                     System.out.println("Invalid Entry");
