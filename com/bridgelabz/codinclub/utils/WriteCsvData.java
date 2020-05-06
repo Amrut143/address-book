@@ -2,22 +2,30 @@ package com.bridgelabz.codinclub.utils;
 import com.bridgelabz.codinclub.models.Person;
 import java.io.PrintWriter;
 import java.io.IOException;
+import java.util.List;
 /**
  *creating a class to write the perdon data into csv file.
  * @author:Amrut
  *
  */
 public class WriteCsvData {
-	 public static void write(Person person){
+	 public static PrintWriter printWriter;
+	 public static void write(List<Person> personList){
 	        try{
-	            PrintWriter pw = new PrintWriter("com/bridgelabz/codeinclub/utils/PersonData/AddressBook.csv");
+	            printWriter = new PrintWriter("AddressBook.csv");
+						for(Person person : personList){
 	                String csv = person.getFirstName()+","+person.getLastName()+","+person.getAddress()+","+person.getCity()+","+person.getState()+","+person.getZipCode()+","+person.getPhone()+";";
-	                pw.append(csv);
-						 pw.close();
-	            } catch (IOException ioe){
+	                printWriter.append(csv);
+						}
+						 System.out.println("write CSV successfully!");
+
+						 printWriter.flush();
+                   printWriter.close();
+
+					}catch (IOException ioe){
                         System.out.println("Error");
                         ioe.printStackTrace();
-					}
 
-				}
+               }
 			}
+	}
