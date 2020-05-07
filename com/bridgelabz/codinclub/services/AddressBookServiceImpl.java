@@ -3,6 +3,8 @@ import com.bridgelabz.codinclub.utils.AddressBookRepo;
 import com.bridgelabz.codinclub.utils.AddressBookUtil;
 import com.bridgelabz.codinclub.models.Person;
 import com.bridgelabz.codinclub.utils.WriteCsvData;
+import com.bridgelabz.codinclub.utils.ReadCsvData;
+import java.util.*;
 
 /**
 *Creating implementation class for AddressBookService interface
@@ -86,6 +88,38 @@ public class AddressBookServiceImpl implements AddressBookService {
             System.out.println("contact not found.");
         }
 
+    }
+
+	 @Override
+    public void readData(){
+        List<Person> list = ReadCsvData.read();
+        if(list.isEmpty()){
+            System.out.println("Nothing to load from file.");
+        }else{
+            for(Person obj : list){
+                repo.addressBook.add(obj);
+            }
+            System.out.println("Data read from file");
+        }
+    }
+		@Override
+    public void sort(){
+        System.out.println("1. Sort by name");
+		  System.out.println("2. Sort by zip");
+        System.out.print("Enter your choice: ");
+        int choice = AddressBookUtil.getUserNumber();
+        switch(choice){
+            case 1:
+                Collections.sort(repo.addressBook, Person.sortByName);
+                display();
+            break;
+            case 2:
+                Collections.sort(repo.addressBook, Person.sortByZip);
+                display();
+            break;
+            default:
+                System.out.println("Invalid input.");
+        }
     }
 
     @Override
