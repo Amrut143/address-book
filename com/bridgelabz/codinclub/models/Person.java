@@ -1,4 +1,5 @@
 package com.bridgelabz.codinclub.models;
+import java.util.Comparator;
 /**
 *this is the person model class to define the required fields and setter getter methods
 *@author:Amrut
@@ -61,5 +62,22 @@ public class Person {
     public void setPhone(final String phone){
         this.phone = phone;
     }
+	 public static Comparator<Person> sortByName = new Comparator<Person>(){
+        public int compare(Person obj1, Person obj2){
+            String name1 = obj1.getLastName();
+            String name2 = obj2.getLastName();
+
+            return name1.compareTo(name2);
+        }
+    };
+
+    public static Comparator<Person> sortByZip = new Comparator<Person>(){
+        public int compare(Person obj1, Person obj2){
+            String zip1 = obj1.getZipCode();
+            String zip2 = obj2.getZipCode();
+
+            return zip1.compareTo(zip2);
+        }
+    };
 
 }
