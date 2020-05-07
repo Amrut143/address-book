@@ -9,5 +9,6 @@ public interface AddressBookService {
 	void deletePerson();
 	void display();
 	void saveChange();
-
+	void sort();
+	void readData();
 }
