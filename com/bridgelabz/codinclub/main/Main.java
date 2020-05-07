@@ -15,7 +15,7 @@ public class Main {
     	/*creating the implementation class object*/
         final AddressBookService addressBookService = new AddressBookServiceImpl(new AddressBookRepo());
         System.out.println("Welcome to my address book");
-			addressBookService.read();
+			addressBookService.readData();
         while(true){
             System.out.print("View the options and choose\n1. Add contact \n2. View contact \n3. Edit contact \n4. Sort contacts \n5. Delete contact\n6. Quit \nEnter your choice: ");
 
@@ -35,6 +35,7 @@ public class Main {
                 break;
                 case 4:
                     System.out.println("Sort contact: ");
+						  addressBookService.sort();
                 break;
                 case 5:
                     System.out.println("Delete contact: ");
