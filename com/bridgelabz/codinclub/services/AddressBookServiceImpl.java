@@ -20,7 +20,7 @@ public class AddressBookServiceImpl implements AddressBookService {
     @Override
 	/*override addPerson method to add the person details*/
     public void addPerson() {
-
+		  AddressBookUtil.getUserString();
         System.out.println("Enter First name: ");
         final String firstName = AddressBookUtil.getUserString();
 
